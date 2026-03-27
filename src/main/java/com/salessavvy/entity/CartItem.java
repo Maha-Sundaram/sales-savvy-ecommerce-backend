@@ -13,9 +13,9 @@ public class CartItem extends BaseEntity {
 
 	@ManyToOne
 	private User user;
-	
+
 	@ManyToOne
 	private Product product;
-	
+
 	private int quantity;
 }

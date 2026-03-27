@@ -21,21 +21,21 @@ public class AuthController {
 		super();
 		this.authService = authService;
 	}
-	
+
 	@PostMapping("/register")
 	public String regiter(@RequestBody RegisterRequest request) {
-		
+
 		return authService.register(request);
-		
+
 	}
-	
+
 	@PostMapping("/login")
 	public AuthResponse login(@RequestBody LoginRequest request) {
-		
+
 		String token = authService.login(request);
-		
+
 		return new AuthResponse(token);
-		
+
 	}
-	
+
 }

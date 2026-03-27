@@ -10,5 +10,5 @@ import lombok.Setter;
 public class Role extends BaseEntity{
 
 	private String name;
-	
+
 }

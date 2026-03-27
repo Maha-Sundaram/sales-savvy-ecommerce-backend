@@ -14,14 +14,14 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class User extends BaseEntity {
-	
+
 	private String name;
-	
+
 	private String email;
-	
+
 	private String password;
-	
+
 	@ManyToOne
 	private String role;
-	
+
 }

@@ -15,8 +15,8 @@ public class Order extends BaseEntity {
 
 	@ManyToOne
 	private User user;
-	
+
 	private BigDecimal totalAmount;
-	
+
 	private String status;
 }
