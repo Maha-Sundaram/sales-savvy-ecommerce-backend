@@ -1,7 +1,6 @@
 package com.salessavvy.dto.response;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,16 +8,14 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 
-public class ProductResponse {
+public class CartResponse {
 
 	private Long id;
 	
-	private String name;
+	private String productName;
 	
-	private String description;
+	private int quantity;
 	
 	private BigDecimal price;
-	
-	private LocalDateTime createdAt;
 	
 }

@@ -1,6 +1,7 @@
 package com.salessavvy.dto.request;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,5 +18,9 @@ public class ProductRequest {
 	private BigDecimal price;
 	
 	private int stock;
+	
+	private LocalDateTime updatedAt;
+	
+	private LocalDateTime createdAt;
 	
 }

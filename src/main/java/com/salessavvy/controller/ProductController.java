@@ -25,28 +25,28 @@ public class ProductController {
 	@PostMapping("/admin/products")
 	public ProductResponse createProduct(@RequestBody ProductRequest request) {
 		
-		return ProductService.createProduct(request);
+		return productService.createProduct(request);
 		
 	}
 	
 	@PostMapping("/admin/products/{id}")
 	public ProductResponse updateProduct(@PathVariable long id, @RequestBody ProductRequest request) {
 		
-		return ProductService.updateProduct(id, request);
+		return productService.updateProduct(id, request);
 		
 	}
 	
 	@DeleteMapping("/admin/product/{id}")
 	public void deleteProduct(@PathVariable Long id) {
 		
-		ProductService.deleteProduct(id);
+		productService.deleteProduct(id);
 		
 	}
 	
 	@GetMapping("/products")
 	public Page<ProductResponse> getProducts(@RequestParam int page, @RequestParam int size) {
 		
-		return ProductService.getAllProducts(page, size);
+		return productService.getAllProducts(page, size);
 		
 	}
 	

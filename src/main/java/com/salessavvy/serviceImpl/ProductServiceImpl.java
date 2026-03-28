@@ -1,6 +1,8 @@
 package com.salessavvy.serviceImpl;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.salessavvy.dto.request.ProductRequest;
@@ -30,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
 		
 		Product saved = productRepository.save(product);
 		
-		return new ProductResponse(saved.getId(), saved.getName(), saved.getDescription(), saved.getPrice());
+		return new ProductResponse(saved.getId(), saved.getName(), saved.getDescription(), saved.getPrice(),saved.getCreatedAt());
 	}
 
 	@Override
@@ -45,19 +47,23 @@ public class ProductServiceImpl implements ProductService {
 		
 		Product updated = productRepository.save(product);
 		
-		return new ProductResponse(updated.getId(), updated.getName(), updated.getDescription(), updated.getPrice());
+		return new ProductResponse(updated.getId(), updated.getName(), updated.getDescription(), updated.getPrice(), updated.getUpdatedAt());
 		
 	}
 
 	@Override
 	public void deleteProduct(Long id) {
 		
+		productRepository.deleteById(id);
 	}
 
 	@Override
 	public Page<ProductResponse> getAllProducts(int page, int size) {
 		
-		return null;
+		Pageable pageable = PageRequest.of(page, size);
+		
+		return productRepository.findAll(pageable)
+				.map(product -> new ProductResponse(product.getId(), product.getName(), product.getDescription(), product.getPrice(), product.getCreatedAt()));
 	}
 
 }
