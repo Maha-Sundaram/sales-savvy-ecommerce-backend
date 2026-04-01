@@ -14,7 +14,7 @@ import lombok.Setter;
 public class OrderItem extends BaseEntity {
 
 	@ManyToOne
-	private Order order;
+	private Orders orders;
 
 	@ManyToOne
 	private Product product;

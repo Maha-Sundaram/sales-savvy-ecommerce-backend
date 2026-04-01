@@ -5,7 +5,7 @@ import jakarta.persistence.OneToOne;
 public class Payment extends BaseEntity {
 
 	@OneToOne
-	private Order order;
+	private Orders orders;
 
 	private String paymentMethod;
 

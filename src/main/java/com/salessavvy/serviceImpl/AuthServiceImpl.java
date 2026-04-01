@@ -1,5 +1,7 @@
 package com.salessavvy.serviceImpl;
 
+import java.util.Optional;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +31,21 @@ public class AuthServiceImpl implements AuthService{
 	@Override
 	public String register(RegisterRequest request) {
 
-		return null;
-	}
+        Optional<User> existing = userRepository.findByEmail(request.getEmail());
+        
+        if (existing.isPresent()) {
+            return "User with this email already exists";
+        }
+
+        User user = new User();
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+
+        userRepository.save(user);
+
+        return "User registered successfully";
+    }
 
 	@Override
 	public String login(LoginRequest request) {

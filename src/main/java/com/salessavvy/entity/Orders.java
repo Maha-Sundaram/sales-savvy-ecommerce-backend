@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Order extends BaseEntity {
+public class Orders extends BaseEntity {
 
 	@ManyToOne
 	private User user;

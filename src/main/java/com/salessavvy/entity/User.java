@@ -2,6 +2,7 @@ package com.salessavvy.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,16 +13,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class User extends BaseEntity {
 
-	private String name;
+    private String name;
 
-	private String email;
+    private String email;
 
-	private String password;
+    private String password;
 
-	@ManyToOne
-	private String role;
-
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 }
